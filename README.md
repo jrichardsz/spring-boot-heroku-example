@@ -1,48 +1,62 @@
-# spring-boot-heroku-example
+# Spring boot for heroku deployments
 
-A example Java app using *Spring Boot*, *Restful API with Spring MVC*, *JPA* and *Postgresql*, which can easily be deployed to Heroku.  
+This repo is a fast alternative  to deploy simple and complex spring boot apps in heroku platform. 
 
-This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-## Running Locally
+# Getting Started
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-```sh
-$ git clone https://github.com/sinihong/spring-boot-heroku-example.git 
-$ cd spring-boot-heroku-example
-$ mvn install
-$ heroku local web
+# Prerequisites
+
+What things you need to install the software and how to install them
+
+## Workspace
+
+- java 1.7+
+- maven
+
+### Installing
+
+After cloning repo, choose one example and go to its directory, for example:
+
 ```
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-As a JPA sample, you can get the customer list on [localhost:5000/customers](http://localhost:5000/customers)
-And in order to add a customer, send a POST request to [localhost:5000/customers](http://localhost:5000/customers) with a json message.
-Below is a curl example.  
-````sh
-$ curl -X POST -H "Content-Type: application/json" -d '{"firstName":"John","lastName":"Doe"}' http://localhost:5000/customers/
-````
-For reference, my test postgresql is configured in the application.properties. 
-
-
-## Running from Eclipse
-* Install maven eclipse plugin - m2e. (if you are a strong spring user, Spring Tool Suite is recommended which includes the m2e.)
-* Import 'Existing Maven Project' and select the directory you clone.
-* Run 'SampleApplication' as a Java Application or Spring Boot App if you installed Spring Tool Suite. 
-Your app should now be running on [localhost:8080](http://localhost:8080/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
+cd 001-no-database
 ```
 
-## Documentation
+After that, just run :
 
-For more information about using Java on Heroku, see these Dev Center articles:
+```
+mvn spring-boot:run
+```
 
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
+If no errors, api is ready to use or test.
 
+## Examples and Enpoints
+
+If default parameters are used:
+
+| folder example        	| rest endpoint  |	description  |
+| ------------- |:-------------:| -----:| -----:|
+| 001-no-database      		| http://localhost:8080/customers 			|  simple customers in memory
+
+
+## Versioning
+
+1.0.0
+
+## Authors
+
+* **Richard Leon Ingaruca** - *Initial work* - [Jrichardsz](https://github.com/jrichardsz)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
 

@@ -24,7 +24,18 @@
             <goals><goal>copy-dependencies</goal></goals>
           </execution>
         </executions>
-      </plugin>      
+      </plugin> 
+		<plugin>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-maven-plugin</artifactId>
+		    <dependencies>
+		        <dependency>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>springloaded</artifactId>
+		            <version>1.2.1.RELEASE</version>
+		        </dependency>
+		    </dependencies>
+		</plugin>           
     </plugins>
   </build>
   <dependencyManagement>
@@ -32,7 +43,7 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>1.2.3.RELEASE</version>
+        <version>1.3.0.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
