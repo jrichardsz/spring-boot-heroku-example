@@ -34,17 +34,12 @@ If no errors, api is ready to use or test.
 
 ## Examples and Enpoints
 
-If default parameters are used:
-
-| folder example        	| rest endpoint  |	description  |
-|-------------|:-------------:| -----:| -----:|
-| 001-no-database      		| http://localhost:8080/customers 			|  simple customers in memory
+If default parameters are used, this will be the rest:
 
 | project | rest endpoint | description |
 |---------|---------------|-------------|
 | 001-no-database        |  http://localhost:8080/customers             |  simple rest customers in memory           |
-|         |               |             |
-|         |               |             |
+
 
 
 ## Versioning
