@@ -1,20 +1,11 @@
 package com.springwalk.sample.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-/**
- * 
- * @author sini
- * @date May 18, 2015
- */
-@Entity
+
+
 public class Customer {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private long id;
 	private String firstName;
 	private String lastName;

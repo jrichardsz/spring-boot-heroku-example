@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @RestController
-public class SampleApplication {
+public class Application {
 
 	@RequestMapping("/")
 	public String home(){
@@ -28,6 +28,6 @@ public class SampleApplication {
 	}
 	
 	public static void main(String[] args){
-		SpringApplication.run(SampleApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
