@@ -1,7 +1,6 @@
-# Spring boot for heroku deployments
+# Spring boot templates
 
-This repo is a fast alternative  to deploy simple and complex spring boot apps in heroku platform. 
-
+This repository is my box of ready to use spring boot templates
 
 # Getting Started
 
@@ -11,12 +10,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-## Workspace
+# Workspace
 
-- java 1.7+
+- java 1.8
 - maven
 
-### Installing
+# Build and Run
 
 After cloning repo, choose one example and go to its directory, for example:
 
@@ -27,37 +26,56 @@ cd 001-no-database
 After that, just run :
 
 ```
-mvn spring-boot:run
+mvn clean pacakge spring-boot:run
 ```
 
 If no errors, api is ready to use or test.
 
-## Examples and Enpoints
+# Enpoints
 
-If default parameters are used, this will be the rest:
+## 00-hello-world
 
-| project | rest endpoint | description |
-|---------|---------------|-------------|
-| 001-no-database        |  http://localhost:8080/customers             |  simple rest customers in memory           |
+```
+curl http://localhost:8080/
 
+curl http://localhost:8080/customers
+```
 
+Tested in ![heroku](https://raw.githubusercontent.com/jrichardsz/static_resources/master/heroku.png)
 
-## Versioning
+## 001-no-database
+
+```
+curl http://localhost:8080/
+
+curl http://localhost:8080/customers
+```
+
+Tested in ![heroku](https://raw.githubusercontent.com/jrichardsz/static_resources/master/heroku.png)
+
+## 002-hql-database
+
+```
+curl http://localhost:8080/
+
+curl http://localhost:8080/customer
+
+curl -X POST -H "Content-Type: application/json" --data '{"id":"100","firstName":"John","lastName":"Wick"}'   http://localhost:8080/customer
+
+curl -X POST -H "Content-Type: application/json" --data '{"id":"101","firstName":"John","lastName":"Rambo"}'   http://localhost:8080/customer
+
+```
+
+Tested in ![heroku](https://raw.githubusercontent.com/jrichardsz/static_resources/master/heroku.png)
+
+# Versioning
 
 1.0.0
 
-## Authors
-
-* **Richard Leon Ingaruca** - *Initial work* - [Jrichardsz](https://github.com/jrichardsz)
-
-
-## License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+# Authors
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+* **Richard Leon Ingaruca** - *Initial work* - [JRichardsz](https://github.com/jrichardsz)

@@ -8,9 +8,7 @@
  */
 package com.springwalk.sample.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,26 +31,17 @@ public class CustomerController {
 	@Autowired
 	CustomerRepository repository;
 	
-	@RequestMapping(value="/customers", method=RequestMethod.GET)
+	@RequestMapping(value="/customer", method=RequestMethod.GET)
 	@ResponseBody
 	public Iterable<Customer> getCustomers(){
-		
-		ArrayList<Customer> customers = new ArrayList<Customer>();
-		Customer customer = new Customer("John","McClane");
-		customers.add(customer);
-		customer = new Customer("John","Wick");
-		customers.add(customer);
-		customer = new Customer("John","Rambo");
-		customers.add(customer);
-		
-		return customers;
+		return repository.findAll();
 	}
-	@RequestMapping(value="/customers/{id}", method=RequestMethod.GET)
-	public Customer getCustomer(@PathVariable long id){
-		return repository.findOne(id);
+	@RequestMapping(value="/customer/{id}", method=RequestMethod.GET)
+	public Optional<Customer> getCustomer(@PathVariable long id){
+		return repository.findById(id);
 	}
 	
-	@RequestMapping(value="/customers", method=RequestMethod.POST)
+	@RequestMapping(value="/customer", method=RequestMethod.POST)
 	public void addCustomer(@RequestBody Customer customer){
 		repository.save(customer);
 	}

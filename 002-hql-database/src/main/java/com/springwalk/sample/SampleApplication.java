@@ -24,7 +24,7 @@ public class SampleApplication {
 
 	@RequestMapping("/")
 	public String home(){
-		return "Hello World!";
+		return "Hello World with memory db :b";
 	}
 	
 	public static void main(String[] args){
