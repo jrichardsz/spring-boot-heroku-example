@@ -17,7 +17,7 @@ What things you need to install the software and how to install them
 
 # Build and Run
 
-After cloning repo, choose one example and go to its directory, for example:
+After cloning repository, choose one example and go to its directory, for example:
 
 ```
 cd 001-no-database
@@ -26,7 +26,13 @@ cd 001-no-database
 After that, just run :
 
 ```
-mvn clean pacakge spring-boot:run
+mvn clean package spring-boot:run
+```
+
+Skip Tests with :
+
+```
+mvn clean package -DskipTests=true
 ```
 
 If no errors, api is ready to use or test.
@@ -67,6 +73,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"id":"101","firstName"
 ```
 
 Tested in ![heroku](https://raw.githubusercontent.com/jrichardsz/static_resources/master/heroku.png)
+
+## 003-hql-database-with-integration-test
 
 # Versioning
 
