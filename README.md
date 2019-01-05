@@ -76,6 +76,8 @@ Tested in ![heroku](https://raw.githubusercontent.com/jrichardsz/static_resource
 
 ## 003-hql-database-with-integration-test
 
+Same endpoints as **002-hql-database**
+
 # Versioning
 
 1.0.0
