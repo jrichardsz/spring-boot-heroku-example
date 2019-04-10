@@ -31,7 +31,17 @@ public class HelloWorldService {
 	private Environment environment;
 
 	public String getHelloMessage() {
-		return "Hello " + this.name + " " + environment.getProperty("lastname");
+
+	  String nickname = environment.getProperty("nickname");
+
+		if(nickname!=null){
+		  return "Hello " + this.name + " " + environment.getProperty("lastname") + " or better known as: "+nickname;
+		}else{
+			return "Hello " + this.name + " " + environment.getProperty("lastname");
+		}
+
+
+
 	}
 
 }
