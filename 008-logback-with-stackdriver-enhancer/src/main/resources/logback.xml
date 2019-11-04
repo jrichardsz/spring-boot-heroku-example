@@ -1,0 +1,65 @@
+<configuration>
+
+	<conversionRule conversionWord="clr"
+		converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+	<conversionRule conversionWord="wex"
+		converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+	<conversionRule conversionWord="wEx"
+		converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+
+	<appender name="consoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="fileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+
+		<file>/app.log</file>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>/app-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+			</Pattern>
+		</encoder>
+	</appender>
+
+	  <appender name="googleAppender" class="com.google.cloud.logging.logback.LoggingAppender">
+	    <!-- Optional : filter logs at or above a level -->
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	      <level>INFO</level>
+	    </filter>
+	    <log>application.log</log> <!-- Optional : default java.log -->
+	    <resourceType>gae_app</resourceType> <!-- Optional : default: auto-detected, fallback: global -->
+	    <enhancer>org.jrichardsz.templates.springboot.ExampleEnhancer</enhancer> <!-- Optional -->
+	    <flushLevel>WARN</flushLevel> <!-- Optional : default ERROR -->
+	    <credentialsFile>/../../service-account-key-for-stackdriver-logging.json</credentialsFile>
+	  </appender>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="fileAppender" />
+		<appender-ref ref="googleAppender" />
+		
+	</root>
+
+</configuration>
+
